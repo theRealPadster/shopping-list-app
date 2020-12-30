@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+/* added by me */
+.shoppinglist-wrapper {
+  display: flex;
+}
+.column {
+  flex-basis: 100%;
+}
+
+.category {
+  background: #eee;
+}
+.category.checked {
+  background: #ff0;
+  color: #000;
+}

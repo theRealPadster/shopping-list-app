@@ -1,4 +1,6 @@
 import logo from './logo.svg';
+import Category from './components/Category';
+import CategoryList from './components/CategoryList';
 import './App.css';
 
 function App() {
@@ -18,6 +20,20 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className="shoppinglist-wrapper">
+        <div className="column">
+          <CategoryList>
+            <Category name="Produce" items={["Apples","Carrots","Pears"]}></Category>
+            <Category name="Desserts" items={["Ice cream","Pie","Custard"]}></Category>
+          </CategoryList>
+        </div>
+        <div className="column">
+
+        </div>
+        <div className="column">
+
+        </div>
+      </div>
     </div>
   );
 }
