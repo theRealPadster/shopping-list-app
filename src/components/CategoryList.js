@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './components/Product';
+import Product from './Product';
 // import ReactDOM from 'react-dom';
 
 export default class CategoryList extends React.Component {
@@ -39,7 +39,9 @@ export default class CategoryList extends React.Component {
     // All of the items of the children, so it can draw them in another list
     const allChildItems = updateChildrenWithProps.map((category, index) =>
       category.props.items.map((item, itemIndex) => (
-        <li data-category-index={index} key={`${index}-${itemIndex}`}>{item}</li>
+        <Product name={item} categoryIndex={index} itemIndex={itemIndex}
+          key={`${index}-${itemIndex}`}
+          visible={index === this.state.value}></Product>
       ))
     );
 

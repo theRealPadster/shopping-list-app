@@ -52,3 +52,10 @@
   background: #ff0;
   color: #000;
 }
+
+.product {
+  display: none;
+}
+.product.visible {
+  display: list-item;
+}
