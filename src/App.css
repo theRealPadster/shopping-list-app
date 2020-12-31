@@ -1,5 +1,11 @@
+.App-name {
+  color: #fff;
+  font-size: 2rem;
+}
+
 .App-logo {
   height: 10vmin;
+  width: 10vmin;
   pointer-events: none;
 }
 
@@ -13,15 +19,9 @@
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -33,7 +33,8 @@
   }
 }
 
-/* added by me */
+/* Added by me */
+
 .wrapper {
   display: flex;
 }
@@ -47,6 +48,25 @@
 .wrapper ul li {
   padding: 0.7rem 0.5rem;
   background: #eee;
+}
+
+/* Headings */
+.category-list::before,
+.product-list::before,
+.shopping-list::before {
+  display: block;
+  font-weight: bold;
+  padding: 0.7rem 0.5rem;
+  background: #eee;
+}
+.category-list::before {
+  content: 'Categories';
+}
+.product-list::before {
+  content: 'Products';
+}
+.shopping-list::before {
+  content: 'Shopping List';
 }
 
 .category {
