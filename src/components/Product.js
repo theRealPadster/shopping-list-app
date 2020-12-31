@@ -29,9 +29,9 @@ export default class Product extends React.Component {
       <li className={className}
         data-category-index={this.props.categoryIndex}
         data-item-index={this.props.itemIndex}
-        key={this.props.itemIndex}
-        onClick={() => clickHandler(this.props.name)}>
-        {this.props.name}
+        key={this.props.itemIndex}>
+        <span>{this.props.name}</span>
+        <button onClick={() => clickHandler(this)}>Add</button>
       </li>
     );
   }

@@ -6,15 +6,15 @@ import ShoppingList from './ShoppingList';
 export default class CategoryList extends React.Component {
 
   productClickHandler = (someArg) => {
+    let updatedList = [...this.state.shoppingList, someArg];
+
     // Update the state of the shopping list (parent)
-    this.state.shoppingList.push(someArg);
-    // this.setState({
-    //   ...this.state,
-    //   shoppingList
-    // }, () => {
-    //   console.log(this.state.value);
-    // });
-    console.log(this.state.shoppingList);
+    this.setState({
+      ...this.state,
+      shoppingList: updatedList,
+    }, () => {
+      console.log(this.state.shoppingList);
+    });
   }
 
   categoryClickHandler = (someArg) => {
@@ -71,7 +71,9 @@ export default class CategoryList extends React.Component {
         <ul className='product-list'>
           {allChildItems}
         </ul>
-        <ShoppingList></ShoppingList>
+        <ShoppingList>
+          {this.state.shoppingList}
+        </ShoppingList>
       </div>
     );
   }

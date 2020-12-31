@@ -4,12 +4,12 @@ import React from 'react';
 
 export default class ShoppingList extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     // checked: false,
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+    };
+  }
 
   render() {
 
@@ -20,9 +20,13 @@ export default class ShoppingList extends React.Component {
     //   className += ' checked';
     // }
 
+    let items = this.props.children.map((item, itemIndex) => (
+      <li key={itemIndex}>{item.props.name}</li>
+    ));
+
     return (
       <ul className='shopping-list'>
-
+        {items}
       </ul>
     );
   }
