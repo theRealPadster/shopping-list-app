@@ -1,16 +1,26 @@
 import React from 'react';
 import Product from './Product';
 import ShoppingList from './ShoppingList';
+import ShoppingListItem from '../classes/ShoppingListItem';
 // import ReactDOM from 'react-dom';
 
 export default class CategoryList extends React.Component {
 
   productClickHandler = (someArg) => {
-    let updatedList = [...this.state.shoppingList, someArg];
+    let existingItem = this.state.shoppingList.get(someArg.props.name);
+    if (existingItem) {
+      existingItem.quantity++;
+      this.state.shoppingList.set(someArg.props.name, existingItem);
+    } else {
+      this.state.shoppingList.set(someArg.props.name,
+        new ShoppingListItem(
+          someArg.props.name, 1
+        ));
+    }
     // Update the state of the shopping list (parent)
     this.setState({
       ...this.state,
-      shoppingList: updatedList,
+      // shoppingList: updatedList,
     }, () => {
       console.log(this.state.shoppingList);
     });
@@ -30,7 +40,7 @@ export default class CategoryList extends React.Component {
     super(props);
     this.state = {
       value: null,
-      shoppingList: [],
+      shoppingList: new Map(),
     };
   }
 
@@ -71,7 +81,7 @@ export default class CategoryList extends React.Component {
           {allChildItems}
         </ul>
         <ShoppingList>
-          {this.state.shoppingList}
+          {Array.from(this.state.shoppingList.values())}
         </ShoppingList>
       </div>
     );

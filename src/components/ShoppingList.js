@@ -21,7 +21,7 @@ export default class ShoppingList extends React.Component {
     // }
 
     let items = this.props.children.map((item, itemIndex) => (
-      <li key={itemIndex}>{item.props.name}</li>
+      <li key={itemIndex}>{item.name} - {item.quantity}</li>
     ));
 
     return (
