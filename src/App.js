@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import Category from './components/Category';
 import CategoryList from './components/CategoryList';
 import './App.css';
