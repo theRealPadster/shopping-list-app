@@ -1,9 +1,5 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -15,7 +11,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,10 +39,18 @@
 }
 .wrapper ul {
   flex-basis: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper ul li {
+  padding: 0.7rem 0.5rem;
+  background: #eee;
 }
 
 .category {
-  background: #eee;
+
 }
 .category.checked {
   background: #ff0;

@@ -7,7 +7,6 @@ export default class CategoryList extends React.Component {
 
   productClickHandler = (someArg) => {
     let updatedList = [...this.state.shoppingList, someArg];
-
     // Update the state of the shopping list (parent)
     this.setState({
       ...this.state,
