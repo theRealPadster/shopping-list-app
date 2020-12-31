@@ -48,6 +48,7 @@
 .wrapper ul li {
   padding: 0.7rem 0.5rem;
   background: #eee;
+  border-bottom: 1px solid #000;
 }
 
 /* Headings */
@@ -58,6 +59,7 @@
   font-weight: bold;
   padding: 0.7rem 0.5rem;
   background: #eee;
+  border-bottom: 1px solid #000;
 }
 .category-list::before {
   content: 'Categories';
@@ -82,4 +84,12 @@
 }
 .product.visible {
   display: list-item;
+}
+
+.shopping-list__title {
+  display: block;
+}
+.shopping-list__note {
+  display: block;
+  font-size: smaller;
 }

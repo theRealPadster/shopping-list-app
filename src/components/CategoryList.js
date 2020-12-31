@@ -6,15 +6,15 @@ import ShoppingListItem from '../classes/ShoppingListItem';
 
 export default class CategoryList extends React.Component {
 
-  productClickHandler = (someArg) => {
-    let existingItem = this.state.shoppingList.get(someArg.props.name);
+  productClickHandler = (product) => {
+    let existingItem = this.state.shoppingList.get(product.props.name);
     if (existingItem) {
       existingItem.quantity++;
-      this.state.shoppingList.set(someArg.props.name, existingItem);
+      this.state.shoppingList.set(product.props.name, existingItem);
     } else {
-      this.state.shoppingList.set(someArg.props.name,
+      this.state.shoppingList.set(product.props.name,
         new ShoppingListItem(
-          someArg.props.name, 1
+          product.props.name, 1
         ));
     }
     // Update the state of the shopping list (parent)
@@ -26,32 +26,31 @@ export default class CategoryList extends React.Component {
     });
   }
 
-  shoppingListClickHandler = (someArg) => {
-    console.log(someArg);
-    // let existingItem = this.state.shoppingList.get(someArg.props.name);
-    // if (existingItem) {
-    //   existingItem.quantity++;
-    //   this.state.shoppingList.set(someArg.props.name, existingItem);
-    // } else {
-    //   this.state.shoppingList.set(someArg.props.name,
-    //     new ShoppingListItem(
-    //       someArg.props.name, 1
-    //     ));
-    // }
-    // // Update the state of the shopping list (parent)
-    // this.setState({
-    //   ...this.state,
-    //   // shoppingList: updatedList,
-    // }, () => {
-    //   console.log(this.state.shoppingList);
-    // });
+  shoppingListClickHandler = (name, note) => {
+    console.log(name, note);
+    let existingItem = this.state.shoppingList.get(name);
+    if (existingItem) {
+      existingItem.note = note;
+      this.state.shoppingList.set(name, existingItem);
+    } else {
+      this.state.shoppingList.set(name,
+        new ShoppingListItem(
+          name, 1, note,
+        ));
+    }
+    // Update the state of the shopping list (parent)
+    this.setState({
+      ...this.state,
+    }, () => {
+      console.log(this.state.shoppingList);
+    });
   }
 
-  categoryClickHandler = (someArg) => {
+  categoryClickHandler = (categoryIndex) => {
     // Update the state of the category list (parent)
     this.setState({
       ...this.state,
-      value: someArg,
+      value: categoryIndex,
     }, () => {
       console.log(this.state.value);
     });
