@@ -13,7 +13,7 @@ export default class ShoppingList extends React.Component {
 
   render() {
 
-    // let clickHandler = this.props.clickHandler;
+    let clickHandler = this.props.clickHandler;
 
     // let className = 'category';
     // if (this.props.selected) {
@@ -21,7 +21,10 @@ export default class ShoppingList extends React.Component {
     // }
 
     let items = this.props.children.map((item, itemIndex) => (
-      <li key={itemIndex}>{item.name} - {item.quantity}</li>
+      <li key={itemIndex}>
+        <span>{item.name} - {item.quantity}</span>
+        <button onClick={() => clickHandler(item)}>Add note</button>
+      </li>
     ));
 
     return (

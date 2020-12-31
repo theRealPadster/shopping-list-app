@@ -26,6 +26,27 @@ export default class CategoryList extends React.Component {
     });
   }
 
+  shoppingListClickHandler = (someArg) => {
+    console.log(someArg);
+    // let existingItem = this.state.shoppingList.get(someArg.props.name);
+    // if (existingItem) {
+    //   existingItem.quantity++;
+    //   this.state.shoppingList.set(someArg.props.name, existingItem);
+    // } else {
+    //   this.state.shoppingList.set(someArg.props.name,
+    //     new ShoppingListItem(
+    //       someArg.props.name, 1
+    //     ));
+    // }
+    // // Update the state of the shopping list (parent)
+    // this.setState({
+    //   ...this.state,
+    //   // shoppingList: updatedList,
+    // }, () => {
+    //   console.log(this.state.shoppingList);
+    // });
+  }
+
   categoryClickHandler = (someArg) => {
     // Update the state of the category list (parent)
     this.setState({
@@ -48,7 +69,7 @@ export default class CategoryList extends React.Component {
 
     // on render, update the child props to include if they are selected or not
     // https://reactgo.com/react-pass-props-children/
-    const updateChildrenWithProps = React.Children.map(
+    const updatedCategories = React.Children.map(
       this.props.children,
       (child, i) => {
         return React.cloneElement(child, {
@@ -61,7 +82,7 @@ export default class CategoryList extends React.Component {
     );
 
     // All of the items of the children, so it can draw them in another list
-    const allChildItems = updateChildrenWithProps.map((category, index) =>
+    const allProducts = updatedCategories.map((category, index) =>
       category.props.items.map((item, itemIndex) => (
         <Product name={item}
           categoryIndex={index}
@@ -75,12 +96,12 @@ export default class CategoryList extends React.Component {
     return (
       <div className='wrapper'>
         <ul className='category-list'>
-          {updateChildrenWithProps}
+          {updatedCategories}
         </ul>
         <ul className='product-list'>
-          {allChildItems}
+          {allProducts}
         </ul>
-        <ShoppingList>
+        <ShoppingList clickHandler={this.shoppingListClickHandler}>
           {Array.from(this.state.shoppingList.values())}
         </ShoppingList>
       </div>
