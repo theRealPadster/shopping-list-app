@@ -12,7 +12,7 @@ export default class Product extends React.Component {
 
   render() {
 
-    // let clickHandler = this.props.clickHandler;
+    let clickHandler = this.props.clickHandler;
 
     // const listItems = this.props.items.map((item, index) =>
     //   <li key={index}>{item}</li>
@@ -26,7 +26,11 @@ export default class Product extends React.Component {
     // console.log(`--- category ${this.props.index}: ${this.props.selected} ---`)
 
     return (
-      <li className={className} data-category-index={this.props.categoryIndex} data-item-index={this.props.itemIndex} key={this.props.itemIndex}>
+      <li className={className}
+        data-category-index={this.props.categoryIndex}
+        data-item-index={this.props.itemIndex}
+        key={this.props.itemIndex}
+        onClick={() => clickHandler(this.props.name)}>
         {this.props.name}
       </li>
     );

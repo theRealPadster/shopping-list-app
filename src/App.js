@@ -20,20 +20,12 @@ function App() {
           Learn React
         </a>
       </header>
-      <div className="shoppinglist-wrapper">
-        <div className="column">
-          <CategoryList>
-            <Category name="Produce" items={["Apples","Carrots","Pears"]}></Category>
-            <Category name="Desserts" items={["Ice cream","Pie","Custard"]}></Category>
-          </CategoryList>
-        </div>
-        <div className="column">
 
-        </div>
-        <div className="column">
+      <CategoryList>
+        <Category name="Produce" items={["Apples","Carrots","Pears"]}></Category>
+        <Category name="Desserts" items={["Ice cream","Pie","Custard"]}></Category>
+      </CategoryList>
 
-        </div>
-      </div>
     </div>
   );
 }

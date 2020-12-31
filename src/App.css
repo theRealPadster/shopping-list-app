@@ -38,10 +38,10 @@
 }
 
 /* added by me */
-.shoppinglist-wrapper {
+.wrapper {
   display: flex;
 }
-.column {
+.wrapper ul {
   flex-basis: 100%;
 }
 

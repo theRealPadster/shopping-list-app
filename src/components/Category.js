@@ -14,11 +14,6 @@ export default class Category extends React.Component {
 
     let clickHandler = this.props.clickHandler;
 
-
-    const listItems = this.props.items.map((item, index) =>
-      <li key={index}>{item}</li>
-    );
-
     let className = 'category';
     if (this.props.selected) {
       className += ' checked';
@@ -27,11 +22,10 @@ export default class Category extends React.Component {
     // console.log(`--- category ${this.props.index}: ${this.props.selected} ---`)
 
     return (
-      <li className={className} key={this.props.name} onClick={() => clickHandler(this.props.index)}>
+      <li className={className}
+        key={this.props.name}
+        onClick={() => clickHandler(this.props.index)}>
         {this.props.name}
-        <ul>
-          {listItems}
-        </ul>
       </li>
     );
   }
