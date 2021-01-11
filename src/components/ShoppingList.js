@@ -13,7 +13,8 @@ export default class ShoppingList extends React.Component {
 
   render() {
 
-    let clickHandler = this.props.clickHandler;
+    let noteClickHandler = this.props.noteClickHandler;
+    let removeClickHandler = this.props.removeClickHandler;
 
     // let className = 'category';
     // if (this.props.selected) {
@@ -24,7 +25,8 @@ export default class ShoppingList extends React.Component {
       <li key={itemIndex}>
         <span className='shopping-list__title'>{item.name} - {item.quantity}</span>
         {item.note ? <span className='shopping-list__note'>{item.note}</span> : ''}
-        <button onClick={() => clickHandler(item.name, 'some note')}>Add note</button>
+        <button onClick={() => noteClickHandler(item.name, 'some note')}>Add note</button>
+        <button onClick={() => removeClickHandler(item.name)}>x</button>
       </li>
     ));
 

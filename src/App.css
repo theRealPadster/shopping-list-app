@@ -17,7 +17,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   font-size: calc(10px + 2vmin);
@@ -43,6 +43,11 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 90vh;
+  border: 1px solid #000;
+}
+.wrapper ul:not(:last-of-type) {
+  border-right-width: 0;
 }
 
 .wrapper ul li {

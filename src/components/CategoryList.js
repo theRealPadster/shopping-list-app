@@ -26,7 +26,7 @@ export default class CategoryList extends React.Component {
     });
   }
 
-  shoppingListClickHandler = (name, note) => {
+  shoppingListNoteClickHandler = (name, note) => {
     console.log(name, note);
     let existingItem = this.state.shoppingList.get(name);
     if (existingItem) {
@@ -38,6 +38,17 @@ export default class CategoryList extends React.Component {
           name, 1, note,
         ));
     }
+    // Update the state of the shopping list (parent)
+    this.setState({
+      ...this.state,
+    }, () => {
+      console.log(this.state.shoppingList);
+    });
+  }
+
+  shoppingListRemoveClickHandler = (name) => {
+    console.log(`deleting: ${name}`);
+    this.state.shoppingList.delete(name);
     // Update the state of the shopping list (parent)
     this.setState({
       ...this.state,
@@ -100,7 +111,8 @@ export default class CategoryList extends React.Component {
         <ul className='product-list'>
           {allProducts}
         </ul>
-        <ShoppingList clickHandler={this.shoppingListClickHandler}>
+        <ShoppingList noteClickHandler={this.shoppingListNoteClickHandler}
+          removeClickHandler={this.shoppingListRemoveClickHandler}>
           {Array.from(this.state.shoppingList.values())}
         </ShoppingList>
       </div>
